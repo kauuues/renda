@@ -1,4 +1,14 @@
 (function(){
+  // ======= CONFIG: defina aqui seu checkout da Cakto =======
+  const CHECKOUT_URL = "https://pay.cakto.com.br/SEU_CHECKOUT"; // TROQUE pelo seu link
+
+  // Aplica o link de checkout em todos os botões .js-buy
+  document.querySelectorAll('.js-buy').forEach(a => {
+    a.setAttribute('href', CHECKOUT_URL);
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener');
+  });
+
   // Copyright dinâmico
   const copyrightEl = document.getElementById('copyright');
   if (copyrightEl) {
@@ -15,7 +25,7 @@
     io.observe(hero);
   }
 
-  // Rolagem suave para âncoras
+  // Rolagem suave para âncoras (em links internos)
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href');
@@ -29,7 +39,41 @@
     });
   });
 
-  // UX botão de compra
+  // ======= Mobile menu (hambúrguer + off-canvas) =======
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const backdrop  = document.getElementById('navBackdrop');
+
+  function openMenu(){
+    hamburger.classList.add('active');
+    mobileNav.classList.add('open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    hamburger.setAttribute('aria-expanded', 'true');
+    backdrop.hidden = false;
+    requestAnimationFrame(()=>backdrop.classList.add('show'));
+    document.documentElement.style.overflow = 'hidden'; // bloqueia scroll
+  }
+  function closeMenu(){
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    hamburger.setAttribute('aria-expanded', 'false');
+    backdrop.classList.remove('show');
+    setTimeout(()=>backdrop.hidden = true, 200);
+    document.documentElement.style.overflow = ''; // libera scroll
+  }
+
+  hamburger?.addEventListener('click', ()=>{
+    const isOpen = mobileNav.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
+  });
+  backdrop?.addEventListener('click', closeMenu);
+  // Fecha ao clicar em qualquer link do menu
+  mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  // Fecha com ESC
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+  // UX botão de compra (texto de carregando)
   const buyBtn = document.getElementById('buyBtn');
   if (buyBtn) {
     buyBtn.addEventListener('click',()=>{
