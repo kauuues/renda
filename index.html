@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>O Segredo Que Ninguém Conta – IA criando novos milionários</title>
-  <meta name="description" content="Assista ao vídeo rápido, veja feedbacks reais e garanta seu acesso. E‑book agressivo: atalhos práticos de renda com IA." />
+  <meta name="description" content="Assista ao vídeo rápido, veja feedbacks reais e garanta seu acesso. E-book agressivo: atalhos práticos de renda com IA." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +31,33 @@
           <small>Como a IA Está Criando Novos Milionários</small>
         </div>
       </a>
-      <nav class="cta-top">
+
+      <!-- Desktop nav -->
+      <nav class="cta-top desktop-nav">
         <a class="btn btn-ghost" href="#feedbacks">Feedbacks</a>
         <a class="btn btn-ghost" href="#faq">FAQ</a>
-        <a class="btn btn-primary btn-shine" href="#comprar">COMPRAR AGORA</a>
+        <a class="btn btn-primary btn-shine js-buy" href="https://pay.cakto.com.br/6xg3uyb_638450">COMPRAR AGORA</a>
       </nav>
+
+      <!-- Mobile hamburger -->
+      <button class="hamburger" id="hamburger"
+              aria-label="Abrir menu"
+              aria-controls="mobileNav"
+              aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+
+    <!-- Mobile off-canvas -->
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#feedbacks" class="mobile-link">Feedbacks</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <a href="#" class="https://pay.cakto.com.br/6xg3uyb_638450">Comprar agora</a>
+    </nav>
   </header>
 
-  <!-- ================= HERO + VIDEO ================= -->
+  <!-- ================= HERO + VÍDEO ================= -->
   <main>
     <section class="hero container" id="top">
       <div class="hero-grid">
@@ -49,14 +67,14 @@
             O <span class="glow">segredo</span> que está
             <span class="gradient">colocando dinheiro</span> no seu bolso.
           </h2>
-          <p class="subtitle">Assista ao vídeo (30 Segundos–1 minuto). Depois, veja as provas e clique em <strong>Comprar agora</strong>. Sem enrolação — só o que gera resultado.</p>
+          <p class="subtitle">Assista ao vídeo (2–3 minutos). Depois, veja as provas e clique em <strong>Comprar agora</strong>. Sem enrolação — só o que gera resultado.</p>
           <ul class="bullets">
             <li class="bullet"><i>✓</i> 7 rotas para monetizar com IA — sem programar.</li>
             <li class="bullet"><i>✓</i> Prompts, scripts e anúncios prontos para copiar/colar.</li>
             <li class="bullet"><i>✓</i> Plano de 7 dias: do zero ao primeiro lucro.</li>
           </ul>
           <div class="hero-cta">
-            <a class="btn btn-primary btn-big btn-pulse" href="#comprar">Quero meu acesso</a>
+            <a class="btn btn-primary btn-big btn-pulse js-buy" href="#">Quero meu acesso</a>
             <a class="btn btn-ghost" href="#feedbacks">Ver provas sociais</a>
           </div>
           <div class="hero-trust">
@@ -67,12 +85,7 @@
         </div>
         <div class="hero-right">
           <div class="video-card neon">
-            <!-- OPÇÃO A: YouTube/Vimeo embed (troque VIDEO_ID) -->
             <iframe id="teaser" src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" title="Teaser do e-book" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <!-- OPÇÃO B: MP4
-            <video controls preload="metadata" poster="poster.jpg">
-              <source src="video-teaser.mp4" type="video/mp4" />
-            </video> -->
             <div class="video-caption">Assista primeiro. Depois decida.</div>
           </div>
         </div>
@@ -88,7 +101,7 @@
         </div>
         <div class="u-right">
           <div class="countdown" id="countdown" aria-label="Contagem regressiva da oferta"></div>
-          <a class="btn btn-primary btn-shine" href="#comprar">Garantir agora</a>
+          <a class="btn btn-primary btn-shine js-buy" href="https://pay.cakto.com.br/6xg3uyb_638450">Garantir agora</a>
         </div>
       </div>
     </section>
@@ -126,7 +139,7 @@
           <li class="bullet"><i>✓</i> Checklist de 7 dias para seu primeiro resultado</li>
         </ul>
         <div class="badges">
-          <div class="badge">Acesso Vitalicio</div>
+          <div class="badge">Garantia 7 dias</div>
           <div class="badge">Acesso imediato</div>
           <div class="badge">Suporte por e-mail</div>
         </div>
@@ -134,8 +147,8 @@
       <div class="offer-box glow-border">
         <div class="price"><span class="old">de R$ 149</span> <span class="now">por R$ 29,99</span></div>
         <p class="subtitle subtight">Preço de lançamento por tempo limitado.</p>
-        <a class="btn btn-primary btn-big btn-pulse" id="buyBtn" href="https://payhip.com/b/nVU6O" target="_blank" rel="noopener">COMPRAR AGORA</a>
-        <p class="who who-note">Cartão, Pix ou boleto. Entrega automática por e‑mail.</p>
+        <a class="btn btn-primary btn-big btn-pulse js-buy" id="buyBtn" href="https://pay.cakto.com.br/6xg3uyb_638450">COMPRAR AGORA</a>
+        <p class="who who-note">Cartão, Pix ou boleto. Entrega automática por e-mail.</p>
       </div>
     </section>
 
@@ -144,7 +157,7 @@
       <h2 class="section-title">Perguntas frequentes</h2>
       <details>
         <summary>Preciso saber programar?</summary>
-        <p>Não é preciso saber programar. Você vai usar IA como ferramenta prática: copiar, ajustar e executar.</p>
+        <p>Não. Você vai usar IA como ferramenta prática: copiar, ajustar e executar.</p>
       </details>
       <details>
         <summary>Em quanto tempo posso ter resultado?</summary>
@@ -152,7 +165,7 @@
       </details>
       <details>
         <summary>Como recebo o e-book?</summary>
-        <p>Após a compra, o download é liberado imediatamente e também enviado ao seu e‑mail.</p>
+        <p>Após a compra, o download é liberado imediatamente e também enviado ao seu e-mail.</p>
       </details>
     </section>
   </main>
@@ -161,7 +174,7 @@
   <div class="sticky-buy" id="sticky">
     <div class="sticky-inner">
       <span><b>Oferta ativa:</b> R$ 29,99 hoje</span>
-      <a class="btn btn-primary btn-shine" href="#comprar">COMPRAR AGORA</a>
+      <a class="btn btn-primary btn-shine js-buy" href="https://pay.cakto.com.br/6xg3uyb_638450">COMPRAR AGORA</a>
     </div>
   </div>
 
@@ -186,7 +199,7 @@
       "priceCurrency":"BRL",
       "price":"29",
       "availability":"https://schema.org/InStock",
-      "url":"https://payhip.com/b/nVU6O"
+      "url":"https://pay.cakto.com.br/SEU_CHECKOUT"
     }
   }
   </script>
