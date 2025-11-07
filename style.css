@@ -1,12 +1,12 @@
 :root{
-  --bg: #0b0c10;        /* fundo escuro */
-  --bg-2:#0f1116;       /* profundidade */
-  --card: #141821;      /* cartões */
-  --text: #e9eaee;      /* texto principal */
-  --muted:#9aa3ab;      /* texto secundário */
-  --gold:#d9b44a;       /* destaque dourado */
-  --neon:#ff7a18;       /* CTA neon */
-  --ring:#253042;       /* bordas sutis */
+  --bg: #0b0c10;
+  --bg-2:#0f1116;
+  --card: #141821;
+  --text: #e9eaee;
+  --muted:#9aa3ab;
+  --gold:#d9b44a;
+  --neon:#ff7a18;
+  --ring:#253042;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
@@ -32,7 +32,7 @@ a{color:inherit;text-decoration:none}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
 
 /* Header */
-header{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.6);backdrop-filter: blur(8px);border-bottom:1px solid var(--ring)}
+header{position:sticky;top:0;z-index:60;background:rgba(10,12,16,.6);backdrop-filter: blur(8px);border-bottom:1px solid var(--ring)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;gap:12px;align-items:center}
 .brand-badge{width:40px;height:40px;border-radius:12px;background:radial-gradient(60% 60% at 50% 40%, #2a2f33 0%, #121416 100%);border:1px solid var(--ring);display:grid;place-items:center;color:var(--gold);font-weight:800;text-shadow:0 0 18px rgba(217,180,74,.25)}
@@ -47,11 +47,24 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.6);backdrop-fi
 .btn-primary:hover{filter:saturate(1.08)}
 .btn-ghost{background:transparent}
 .btn-big{padding:16px 22px;border-radius:16px}
-.btn-pulse{animation:pulse 2.2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,122,24,.35)}70%{box-shadow:0 0 0 18px rgba(255,122,24,0)}100%{box-shadow:0 0 0 0 rgba(255,122,24,0)}}
-.btn-shine{position:relative;overflow:hidden}
-.btn-shine::after{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(75deg, transparent 0 40%, rgba(255,255,255,.5) 50%, transparent 60%);transition:transform .8s}
-.btn-shine:hover::after{transform:translateX(120%)}
+
+/* Hamburger */
+.hamburger{display:none;position:relative;width:46px;height:40px;border:1px solid var(--ring);border-radius:12px;background:rgba(20,24,33,.7);cursor:pointer}
+.hamburger span{position:absolute;left:10px;right:10px;height:2px;background:#e9eaee;border-radius:2px;transition:.25s}
+.hamburger span:nth-child(1){top:12px}
+.hamburger span:nth-child(2){top:19px}
+.hamburger span:nth-child(3){top:26px}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile nav (off-canvas) */
+.nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(2px);z-index:58;opacity:0;transition:.25s}
+.nav-backdrop.show{opacity:1}
+.mobile-nav{position:fixed;top:0;right:0;height:100dvh;width:78vw;max-width:360px;background:linear-gradient(180deg,#0f131a,#0c0f14);border-left:1px solid var(--ring);z-index:59;transform:translateX(102%);transition:transform .25s;display:flex;flex-direction:column;padding:18px}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-link{display:block;padding:14px 12px;border:1px solid var(--ring);border-radius:12px;background:rgba(255,255,255,.03);margin-bottom:10px;color:var(--text);font-weight:700}
+.mobile-buy{background:linear-gradient(135deg, var(--gold), #f4d56c);color:#111;border:none;text-align:center}
 
 /* Hero */
 .hero{padding:46px 0 22px}
@@ -107,17 +120,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.6);backdrop-fi
 summary{cursor:pointer;font-weight:800}
 .details+details,details+details{margin-top:10px}
 
-/* Footer */
-footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--ring)}
-.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-
 /* Sticky buy bar */
-.sticky-buy{position:fixed;inset:auto 0 12px;z-index:60;display:none;justify-content:center}
+.sticky-buy{position:fixed;inset:auto 0 12px;z-index:55;display:none;justify-content:center}
 .sticky-inner{display:flex;gap:10px;align-items:center;background:rgba(18,19,21,.9);border:1px solid var(--ring);backdrop-filter: blur(8px);padding:10px 12px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .sticky-inner b{color:var(--gold)}
 
 /* Responsive */
 @media (max-width: 980px){
+  .desktop-nav{display:none}
+  .hamburger{display:inline-block}
   .hero-grid{grid-template-columns:1fr}
   .offer{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr}
